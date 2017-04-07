@@ -1,0 +1,86 @@
+<%- include h1.html %>
+<!--<select style="width: 300px" class="chzn-select" id="obj_branch_id" name="obj.branch.id">
+<option value="">选择网点&nbsp;</option>  
+</select>  
+-->
+
+<h2>请输入ServerTag，并确认</h2>
+<div class="row">
+  <div class="col-lg-4">
+<div class="input-group">
+<span class="input-group-addon">ServerTag</span>
+<input type="text"   class="form-control" style="height:30px"  placeholder="servertag" name="servertag" id="servertag"> 
+</div>
+</div>
+<button id="chaxun" class="btn btn-primary " style="width:100px" type="submit" >查询</button>
+<br>
+<br>
+  <div class="table-responsive">
+        <table  border="0" cellspacing="0" cellpadding="0" class="table">
+            <tr class=" label-primary">
+                <th scope="col" width="12.5%" ><span style="color:white">Hostname</span></th>
+                <th scope="col"><span style="color:white">所属项目</span></th>
+        <th scope="col"><span style="color:white">内网IP</span></th>
+        <th scope="col"><span style="color:white">外网IP</span></th>
+        <th scope="col"><span style="color:white">管理IP</span></th>
+        <th scope="col"><span style="color:white">资产编号</span></th>
+        <th scope="col"><span style="color:white">机柜编号</span></th>
+        <th scope="col"><span style="color:white">ServerTag</span></th>
+         </tr>
+
+
+            <tr >
+                <td><%= list.hostname %></td>
+                <td><%= list.project %></td>
+                <td><%= list.ip %></td>
+                <td><%= list.gip %></td>
+                <td><%= list.loip %></td>
+                <td><%= list.asset %></td>
+                <td><%= list.cabinet %></td>
+                <td><%= list.servertag %></td>
+            </tr>
+
+
+
+
+
+
+
+
+<!--包含Services:<br>
+<input type="checkbox" id="s1" >&nbspApache&nbsp
+<input type="checkbox" id="s2" >&nbspMysql&nbsp
+<input type="checkbox" id="s3" >&nbspNode&nbsp
+<input type="checkbox" id="s4" >&nbspMongo&nbsp
+<input type="checkbox" id="s5" >&nbspRedis&nbsp
+<input type="checkbox" id="s6" >&nbspMemcache&nbsp
+-->
+
+<br>
+<br>
+<br>
+
+
+<script language="javascript">
+$("#chaxun").on("click",function(){
+var $servertag = $("#servertag").val().toString();
+if(!$servertag){
+alert("请输入ServerTag");
+}
+$.post("/chaxun",{servertag:$servertag},function(result){
+if(result.status==-1){
+alert("查询失败");
+}
+else if(result.status==1){
+alert("查询成功");
+}
+
+})
+})
+
+</script>
+
+
+
+
+<%- include footer.html %>

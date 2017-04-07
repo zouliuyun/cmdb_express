@@ -1,0 +1,192 @@
+<%- include h3.html %>
+</div>
+<div class="box">
+<div class="box-header">
+添加资产信息
+</div>
+<div class="inner">
+<div align="center">
+<div class="row">
+  <div class="col-lg-4">
+<div class="input-group">
+<span class="input-group-addon" >Hostname</span>
+<input type="text"   class="form-control"   placeholder="hostname" name="hostname" id="hostname"> 
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">所属项目</span>
+<input type="text"  class="form-control"  placeholder="所属项目"  name="project" id="project">
+</div>
+</div>
+</div>
+</br>
+
+
+
+
+<div class="row">
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">内网Ip</span>
+<input type="text"   class="form-control"   placeholder="内网Ip" name="ip" id="ip">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">公网Ip</span>
+<input type="text"  class="form-control"  placeholder="公网Ip"  name="gip" id="gip">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">管理Ip</span>
+<input type="text"  class="form-control"  placeholder="管理Ip"  name="loip" id="loip">
+</div>
+</div>
+
+</div>
+</br>
+
+
+<div class="row">
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">机柜编号</span>
+<input type="text"   class="form-control"   placeholder="机柜编号" name="cabinet" id="cabinet">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">ServerTag</span>
+<input type="text"  class="form-control"  placeholder="ServerTag"  name="servertag" id="servertag">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">资产编号</span>
+<input type="text"  class="form-control"  placeholder="资产编号"  name="asset" id="asset">
+</div>
+</div>
+</div>
+<br>
+<div class="row">
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">硬盘大小</span>
+<input type="text"  class="form-control"  placeholder="硬盘大小"  name="disk" id="disk2">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">CPU</span>
+<input type="text"  class="form-control"  placeholder="CPU"  name="cpu" id="cpu2">
+</div>
+</div>
+
+  <div class="col-lg-4">
+<div class=" input-group">
+<span class="input-group-addon">内存大小</span>
+<input type="text"  class="form-control"  placeholder="内存大小"  name="memory" id="memory2">
+</div>
+</div>
+</div>
+</div>
+</br>
+
+<!--包含Services:<br>
+<input type="checkbox" id="s1" >&nbspApache&nbsp
+<input type="checkbox" id="s2" >&nbspMysql&nbsp
+<input type="checkbox" id="s3" >&nbspNode&nbsp
+<input type="checkbox" id="s4" >&nbspMongo&nbsp
+<input type="checkbox" id="s5" >&nbspRedis&nbsp
+<input type="checkbox" id="s6" >&nbspMemcache&nbsp
+-->
+
+<br>
+<br>
+<br>
+
+<div align=center >
+          <% if (locals.error) { %>
+            <div><%= locals.error %> </div>
+          <% } %>
+          <% if(locals.success) {%>
+            <div><%= locals.success %> </div>
+          <% } %>
+<button id="newadd" class="btn btn-primary " style="width:100px" type="submit" >提交</button>
+</div>
+</div>
+</div>
+</div>
+<script language="javascript">
+$("#newadd").on("click",function(){
+var $hostname = $("#hostname").val().toString();
+var $project = $("#project").val().toString();
+var $ip = $("#ip").val().toString();
+var $gip = $("#gip").val().toString();
+var $loip = $("#loip").val().toString();
+var $cabinet = $("#cabinet").val().toString();
+var $servertag = $("#servertag").val().toString();
+var $asset = $("#asset").val().toString();
+var $disk = $("#disk2").val().toString();
+var $cpu = $("#cpu2").val().toString();
+var $memory = $("#memory2").val().toString();
+if(!$servertag){
+alert("请输入ServerTag");
+}
+else if (!$hostname) {
+alert("请输入hostname");
+}
+else if(!$ip){
+alert("请输入内网Ip");
+}
+else if(!$loip){
+alert("请输入LoIp")
+}
+else{
+$.post("/addItem",{hostname:$hostname,project:$project,ip:$ip,gip:$gip,loip:$loip,cabinet:$cabinet,servertag:$servertag,asset:$asset,disk:$disk,memory:$memory,cpu:$cpu},function(result){
+if(result.status==0){
+alert("该hostname已存在");
+$.get("/add");
+}
+else if(result.status==3){
+alert("该IP已经存在");
+$.get("/add");
+}
+else if(result.status==4){
+alert("该gip已经存在");
+$.get("/add");
+}
+else if(result.status==5){
+alert("该LOIP已经存在");
+$.get("/add");
+}
+else if(result.status==9){
+alert("该ServerTag已存在");
+$.get("/add");
+}
+else if(result.status==-1){
+alert("添加失败");
+}
+else if(result.status==1){
+alert("添加成功");
+}
+
+})
+
+}
+})
+
+</script>
+
+
+
+
+<%- include footer.html %>

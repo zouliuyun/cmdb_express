@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <title>infra CMDB</title>
+
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link href="stylesheets/signin.css" rel="stylesheet">
+<link href="stylesheets/mystyle.css" media="screen" rel="stylesheet" type="text/css" />
+
+<link href="stylesheets/chosen.css" rel="stylesheet" type='text/css' media='all' />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="javascripts/bootstrap-hover-dropdown.js"></script>
+<script type="text/javascript" src="javascripts/chosen.jquery.js"></script>
+
+
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<style type='text/css'>
+
+#main{
+	background-color:white	
+}
+#zhou1{
+padding-top: 0;
+}
+#head1{
+padding:0 auto;
+margin:0 auto;
+}
+      li#head{
+  	   display:inline;
+  	    float:left;
+	margin:0 auto ;
+	   }
+      li#head2{
+           display:inline;
+            float:right;
+        margin:0 auto ;
+           }
+    </style>
+
+  </head>
+
+  <body >
+    
+
+
+<!--<div class='navbar navbar-inverse' >-->
+<div class="container">
+<div id="navbar-wrapper" style="padding:0">
+<div  id="navigation" class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+		<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+		<a class="navbar-brand" href="/show">Infra <span class='green'>CMDB</span></a>
+	</div>
+ <div class="navbar-collapse collapse">
+
+  <ul class="nav navbar-nav navbar-right">
+
+        <form id="login" action="/login" method="post" class="navbar-form navbar-right" role="form" onSubmit="return Mycheck(login.name.value)" >
+<div class="form-group ">  
+     <li  class="head"> <input  type="text" class="form-control"  name="name" placeholder="User name" required autofocus></li>
+      <li class="head">   <input type="password" class="form-control"  name="password" placeholder="Password" required></li>
+
+          <% if (locals.error) { %>
+            <div><font color="white"><%= locals.error %> </font></div>
+          <% } %>
+         <li>       <button id="l1" class="btn  btn-primary btn-block btn-zly " type="submit">
+                        Sign in</button></li>
+</div>
+        </form>
+
+
+  </ul>
+  </div>
+  </div></div>
+  </div></div>
+
+</div>
+</div>
+</div>
+<script language="javascript">
+
+
+$("#askPost").on("click",function(){
+ $.post("ask", { title: $("#askTitle").val(), askText: $("#askText").val() },function(data) {
+    if(data.status==1){
+      $("#closeAsk").click();
+	$.get("show") ;   
+}
+
+  });
+});
+var servertag3=0;
+var hostname3;
+var project3;
+var ip3;
+var gip3;
+var loip3;
+var asset3;
+var cabinet3;
+var cpu3;
+var disk3;
+var memory3;
+
+
+$("#queren").on("click",function(){
+if($("#servertag1").val().toString()==""){
+alert("请输入ServerTag");
+}
+else{
+var a=$("#servertag1").val().toString();
+$.ajax({
+type:'POST',
+async:false,
+url:'findbyservertag',
+data:"servertag="+a,
+success:function(re){
+servertag3=re.servertag
+hostname3=re.hostname
+project3=re.project
+ip3=re.ip
+gip3=re.gip
+loip3=re.loip
+asset3=re.asset
+cabinet3=re.cabinet
+disk3=re.disk
+cpu3=re.cpu
+memory3=re.memory
+}
+})
+
+document.getElementById("hostname1").value=hostname3
+document.getElementById("project1").value=project3
+document.getElementById("ip1").value=ip3
+document.getElementById("gip1").value=gip3
+document.getElementById("loip1").value=loip3
+document.getElementById("asset1").value=asset3
+document.getElementById("cabinet1").value=cabinet3
+document.getElementById("disk1").value=disk3
+document.getElementById("cpu1").value=cpu3
+document.getElementById("memory1").value=memory3
+}
+});
+
+$("#xiugai").on("click",function(){
+var $pw2 = $("#pd1").val().toString();
+var $pw3 = $("#pd2").val().toString();
+if ($pw2=="" || $pw3=="")
+{
+alert("请确认均有输入");
+}
+else if($pw2==$pw3){
+$.post("/cgpasswd",{newpd:$pw2,renewpassword:$pw3},function(result){
+if(result.status==0){
+alert("修改失败");
+}
+else if (result.status==1){
+alert("修改成功");
+$.get("/out");
+window.location.href="/loginout";
+}
+})
+}
+else if($pw2 != $pw3){
+alert("两次密码输入不一致！");
+//window.history.back(-1);
+}
+})
+
+$("#cgitempost").on("click",function(){
+var $hostname1 = $("#hostname1").val().toString();
+var $project1 = $("#project1").val().toString();
+var $ip1 = $("#ip1").val().toString();
+var $gip1 = $("#gip1").val().toString();
+var $loip1 = $("#loip1").val().toString();
+var $cabinet1 = $("#cabinet1").val().toString();
+var $servertag1 = $("#servertag1").val().toString();
+var $asset1 = $("#asset1").val().toString();
+var $memory1 = $("#memory").val().toString();
+var $disk1 = $("#disk").val().toString();
+var $cpu1 = $("#cpu").val().toString();
+if($servertag1==""){
+alert("请输入ServerTag");
+}
+else if ($hostname1==""){
+alert("请输入hostname");
+}
+else if($ip1==""){
+alert("请输入内网ip")
+}
+else if($loip1==""){
+alert("请输入Loip")
+}
+else{
+$.post("/cgitem",{hostname:$hostname1,project:$project1,ip:$ip1,gip:$gip1,loip:$loip1,cabinet:$cabinet1,servertag:$servertag1,asset:$asset1,memory:$memory1,disk:$disk1,cpu:$cpu1},function(result){
+if(result.status==9){
+alert("不存在该ServerTag,请确认！");
+}
+else if(result.status==0){
+alert("修改成功");
+  $("#closeitem").click();
+}
+})
+}
+})
+
+</script>
+<div id="main" class=container>
+
+
+

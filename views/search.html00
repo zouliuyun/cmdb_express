@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<%- include h1.html %>
+<br>
+	
+        <meta charset="utf-8">
+        <title>bootstrap datatable demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+        <link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/bootstrap-responsiv.css">
+
+
+        <link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/dataTables.bootstra.css">
+	
+
+
+	<link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/dataTables.bootstra.css">
+<!--<input type="text"    placeholder="Hostname" style="height:30px" name="hostname" id="hostname">
+<input type="text"    placeholder="内网IP" style="height:30px" name="ip" id="ip">
+<input type="text"    placeholder="公网IP" style="height:30px" name="gip" id="gip">
+<input type="text"    placeholder="管理IP" style="height:30px" name="loip" id="loip">
+<input type="text"    placeholder="所属项目" style="height:30px" name="project" id="project">
+
+<input type="text"    placeholder="资产编号" style="height:30px" name="asset" id="asset">
+
+<input type="text"    placeholder="机柜编号" style="height:30px" name="cabinet" id="cabinet">
+<br>
+<div align=center>
+<button  class="btn btn-primary " style="width:100px" type="submit" id="search">查询</button>
+</div>-->
+<div>
+			</div>
+
+  <div >  
+        			<table class="table table-striped table-bordered table-hover datatable"  > 
+<thead>
+	 <tr >  
+                <th  width="12.5%" ><span style="color:white">Hostname</span></th>  
+                <th ><span style="color:white">所属项目</span></th>  
+        <th ><span style="color:white">内网IP</span></th>   
+	<th ><span style="color:white">外网IP</span></th>
+	<th ><span style="color:white">管理IP</span></th>
+	<th ><span style="color:white">资产编号</span></th>
+	<th ><span style="color:white">机柜编号</span></th>
+	<th ><span style="color:white">ServerTag</span></th>
+	 </tr>  
+</thead>
+<tbody>
+ <% lists.forEach(function(list, index){ %>
+            <tr >
+                <td><%= list.hostname %></td>
+                <td><%= list.project %></td>
+                <td><%= list.ip %></td>
+                <td><%= list.gip %></td>
+                <td><%= list.loip %></td>
+                <td><%= list.asset %></td>
+                <td><%= list.cabinet %></td>
+                <td><%= list.servertag %></td>
+            </tr>
+
+
+       <% }) %>
+
+</tbody>
+        </table>  
+    </div>           
+ <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/jquery.js"></script>
+                <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/jquery.dataTables.js"></script>
+                        <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/238/n8vhm36h/dataTables.bootstrap.js"></script>
+
+<script language="javascript">
+
+$(document).ready(function() {
+    			$('.datatable').dataTable( {        				
+        				"oLanguage": {
+		    "sProcessing":   "处理中...",
+    "sLengthMenu":   "_MENU_ 记录/页",
+    "sZeroRecords":  "没有匹配的记录",
+    "sInfo":         "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
+    "sInfoEmpty":    "显示第 0 至 0 项记录，共 0 项",
+    "sInfoFiltered": "(由 _MAX_ 项记录过滤)",
+    "sInfoPostFix":  "",
+    "sSearch":       "过滤:",
+    "sUrl":          "",
+    "oPaginate": {
+        "sFirst":    "首页",
+        "sPrevious": "上页",
+        "sNext":     "下页",
+        "sLast":     "末页"
+    }
+		} 
+					});
+		} );
+
+
+
+
+$("#search").on("click",function(){
+
+
+/*function B(){
+if($("#hostname").val().toString()){
+this.hostname = $("#hostname").val().toString();
+}
+if($("#project").val().toString()){
+this.project = $("#project").val().toString();
+}
+if($("#ip").val().toString()){
+this.ip = $("#ip").val().toString();
+}
+if($("#gip").val().toString()){
+this.gip =  $("#gip").val().toString();
+}
+if($("#loip").val().toString()){
+this.loip = $("#loip").val().toString();
+}
+if($("#cabinet").val().toString()){
+this.cabinet = $("#cabinet").val().toString();
+}
+if( $("#asset").val().toString()){
+this.asset =  $("#asset").val().toString();
+}
+}
+*/
+var $hostname = $("#hostname").val().toString();
+var $project = $("#project").val().toString();
+var $ip = $("#ip").val().toString();
+var $gip = $("#gip").val().toString();
+var $loip = $("#loip").val().toString();
+var $cabinet = $("#cabinet").val().toString();
+var $asset = $("#asset").val().toString();
+
+
+//var item = new B()
+//var count=0;
+//for(var n in item)
+//{
+//count++;
+//}
+
+if(!$hostname && !$project && !$ip && !$gip && !$loip && !$cabinet && !$asset){
+$.get('/search');
+}
+else{
+
+$.post("/searchitem",{hostname:$hostname,project:$project,ip:$ip,gip:$gip,loip:$loip,cabinet:$cabinet,asset:$asset},function(result){
+
+
+})
+
+
+}
+
+
+})
+
+</script>
+
+
+<%- include footer.html %>

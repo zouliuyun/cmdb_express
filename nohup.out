@@ -1,0 +1,115 @@
+Express server listening on port 3001
+[90mGET / [32m200 [90m107ms - 5.51kb[0m
+[90mGET /stylesheets/signin.css [32m200 [90m26ms - 1.11kb[0m
+[90mGET /stylesheets/style.css [32m200 [90m20ms - 110b[0m
+[90mGET /javascripts/underscore-min.js [32m200 [90m13ms - 13.91kb[0m
+[90mGET /javascripts/bootstrap.js [32m200 [90m19ms - 57.16kb[0m
+[90mGET /stylesheets/bootstrap.css [32m200 [90m149ms - 121.31kb[0m
+[90mGET /javascripts/jquery-1.11.0.js [32m200 [90m1033ms - 276.31kb[0m
+[90mGET /images/4.jpg [32m200 [90m1069ms - 477.85kb[0m
+[90mPOST /reg [36m302 [90m28ms - 58b[0m
+[90mGET / [32m200 [90m14ms - 5.58kb[0m
+[90mGET /stylesheets/signin.css [36m304 [90m6ms[0m
+[90mGET /stylesheets/bootstrap.css [36m304 [90m12ms[0m
+[90mGET /stylesheets/style.css [36m304 [90m16ms[0m
+[90mGET /javascripts/jquery-1.11.0.js [36m304 [90m16ms[0m
+[90mGET /javascripts/bootstrap.js [36m304 [90m9ms[0m
+[90mGET /javascripts/underscore-min.js [36m304 [90m9ms[0m
+[90mGET /images/4.jpg [36m304 [90m2ms[0m
+[90mPOST /login [36m302 [90m7ms - 66b[0m
+[90mGET /show [32m200 [90m76ms - 13.48kb[0m
+[90mGET /stylesheets/signin.css [36m304 [90m10ms[0m
+[90mGET /stylesheets/mystyle.css [32m200 [90m14ms - 6.98kb[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [32m200 [90m14ms - 3.78kb[0m
+[90mGET /stylesheets/chosen.css [32m200 [90m18ms - 12.35kb[0m
+[90mGET /javascripts/chosen.jquery.js [32m200 [90m19ms - 29.34kb[0m
+[90mGET /images/t5.jpg [32m200 [90m911ms - 178.53kb[0m
+[90mGET /images/t1.jpg [32m200 [90m1735ms - 260.42kb[0m
+[90mGET /images/t4.jpg [32m200 [90m1559ms - 156.45kb[0m
+[90mGET /images/t2.jpg [32m200 [90m3102ms - 783.96kb[0m
+[90mGET /images/t3.jpg [32m200 [90m3650ms - 264.74kb[0m
+[90mGET /search [32m200 [90m33ms - 13.73kb[0m
+[90mGET /stylesheets/signin.css [36m304 [90m10ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m10ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m11ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m6ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m6ms[0m
+[90mGET /stylesheets/dataTables.tableTools.css [32m200 [90m18ms - 9.21kb[0m
+[90mGET /javascripts/dataTables.tableTools.js [32m200 [90m97ms - 79.16kb[0m
+[90mGET /swf/copy_csv_xls_pdf.swf [32m200 [90m25ms - 57.45kb[0m
+[90mGET /search [36m304 [90m11ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m6ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m9ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m11ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m11ms[0m
+[90mGET /stylesheets/dataTables.tableTools.css [36m304 [90m9ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m13ms[0m
+[90mGET /javascripts/dataTables.tableTools.js [36m304 [90m7ms[0m
+[90mGET /swf/copy_csv_xls_pdf.swf [36m304 [90m2ms[0m
+[90mGET /add [32m200 [90m24ms - 15.45kb[0m
+[90mGET /stylesheets/signin.css [36m304 [90m10ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m13ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m10ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m9ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m9ms[0m
+[90mGET /search [36m304 [90m15ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m3ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m2ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m10ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m10ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m11ms[0m
+[90mGET /stylesheets/dataTables.tableTools.css [36m304 [90m11ms[0m
+[90mGET /javascripts/dataTables.tableTools.js [36m304 [90m11ms[0m
+[90mGET /swf/copy_csv_xls_pdf.swf [36m304 [90m6ms[0m
+[90mGET /add [36m304 [90m18ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m12ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m16ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m14ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m12ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m11ms[0m
+[90mGET /search [36m304 [90m13ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m15ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m13ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m13ms[0m
+[90mGET /stylesheets/dataTables.tableTools.css [36m304 [90m10ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m11ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m12ms[0m
+[90mGET /javascripts/dataTables.tableTools.js [36m304 [90m3ms[0m
+[90mGET /swf/copy_csv_xls_pdf.swf [36m304 [90m3ms[0m
+[90mGET /add [36m304 [90m30ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m3ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m7ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m6ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m6ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m4ms[0m
+[90mGET /add [36m304 [90m8ms[0m
+[90mGET /stylesheets/signin.css [36m304 [90m50ms[0m
+[90mGET /stylesheets/mystyle.css [36m304 [90m7ms[0m
+[90mGET /stylesheets/chosen.css [36m304 [90m6ms[0m
+[90mGET /javascripts/bootstrap-hover-dropdown.js [36m304 [90m8ms[0m
+[90mGET /javascripts/chosen.jquery.js [36m304 [90m7ms[0m
+{ hostname: 't1',
+  ip: 't1',
+  project: 't1',
+  gip: 't1',
+  loip: 't1',
+  cabinet: 't1',
+  servertag: 't1',
+  asset: 't1',
+  disk: 't1',
+  cpu: 't1',
+  memory: 't1',
+  _id: 53291739309194033f01f8a5 }
+{ hostname: 't1',
+  ip: 't1',
+  project: 't1',
+  gip: 't1',
+  loip: 't1',
+  cabinet: 't1',
+  servertag: 't1',
+  asset: 't1',
+  disk: 't1',
+  cpu: 't1',
+  memory: 't1',
+  _id: 53291739309194033f01f8a5 }
+[90mPOST /findbyservertag [32m200 [90m10ms - 229b[0m

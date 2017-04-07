@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">	
+    <link href="stylesheets/signin.css" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/style.css">
+<link href="stylesheets/bootstrap.css" rel="stylesheet">    
+<link href="stylesheets/signin.css" rel="stylesheet">
+<script type="text/javascript" src="javascripts/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="javascripts/underscore-min.js"></script>
+	 <style type='text/css'>
+      body {
+      }
+#cc{
+ width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+      li{
+  	   display:inline;
+  	    float:left;
+  	   }
+    </style>
+
+<script type="text/javascript">
+    function Mycheck(str){
+      var mess="不允许输入的字符：\r\n";
+      var mark="yes";
+
+	if(str.indexOf(";")>=0){
+          mark="no";
+          mess+=" ; ";
+      }
+      if(str.indexOf("&")>=0){
+          mark="no";
+          mess+=" & ";
+      }
+      if(str.indexOf("<")>=0){
+          mark="no";
+          mess+=" < ";
+      }
+      if(str.indexOf(">")>=0){
+          mark="no";
+          mess+=" > ";
+      }
+      if(str.indexOf("--")>=0){
+          mark="no";
+          mess+=" -- ";
+      }
+      if(str.indexOf("/")>=0){
+          mark="no";
+          mess+=" / ";
+      }
+      if(str.indexOf("%")>=0){
+          mark="no";
+          mess+=" % ";
+      }
+      if(str.indexOf("'")>=0){
+          mark="no";
+          mess+=" ' ";
+      }
+      if(mark=="no"){
+          alert(mess);
+	return false;
+//	window.location.href="/loginout"; 
+	}
+//else if(mark=="yes"){
+//reg.submit();
+//}
+
+    }
+
+
+</script>
+
+<script type="text/javascript" language=JavaScript charset="UTF-8">
+      document.onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+		var o1 =document.getElementById("reg").style.display; 
+		var o2 =document.getElementById("login").style.display; 
+           // if(e && e.keyCode==27){ // 按 Esc 
+                
+             // }
+        //    if(e && e.keyCode==113){ // 按 F2 
+                 //要做的事情
+          //     }            
+             if(e &&o1=="none"&& e.keyCode==13){ // enter 键
+                l1.click(); 
+		}          
+	        if(e &&o2=="none"&& e.keyCode==13){ // enter 键
+                r1.click(); 
+                }  
+  
+        }; 
+</script>	
+	
+</head>
+
+<body screen_capture_injected="true">
+	<div class="bk">
+		<img src="images/4.jpg"/>
+	</div>
+	<div  class="container">
+	<form id="login" action="/login" method="post" class="form-signin" role="form" onSubmit="return Mycheck(login.name.value)" >
+	 <fieldset>
+	<h2 align="center" class="form-signin-heading"><font FACE=华文行楷  size=10 color="white"><%= title %></font>
+			
+		</h2>
+             <div  class="row-fluid">
+	<div class="btn-group btn-zly" style="margin:0 auto">
+	<button class="btn btn-primary  btn-zly active"  >	<font color="white"> 登陆 </button>
+        <button class="btn   btn-primary   btn-zly" id="changeReg" >   切换注册 </font></button>
+</div>
+  </div>
+	<input  type="text" class="form-control" style="width:100%" name="name" placeholder="User name" required autofocus>
+	<input type="password" class="form-control" style="width:100%" name="password" placeholder="Password" required>	
+		
+		<label class="checkbox">
+		</label>
+          <% if (locals.error) { %>
+            <div><font color="white"><%= locals.error %> </font></div>
+          <% } %>
+<!-- <input class="btn  btn-primary btn-block btn-zly " type="button" onClick="Mylogincheck(login.name.value)" value="Sign in">-->
+		<button id="l1" class="btn  btn-primary btn-block btn-zly " type="submit">
+			Sign in</button>
+		
+		 </fieldset>
+	</form>
+ <form id="reg" action="/reg" method="post" class="form-signin" role="form"  onSubmit="return Mycheck(reg.name.value)">
+         <fieldset>
+        <h2 align="center" class="form-signin-heading"><font FACE=华文行楷  size=10 color="white"><%= title %></font>
+                        
+                </h2>
+             <div class="row-fluid">
+	<div class="btn-group btn-zly" style="margin:0 auto">
+         <button class="btn   btn-primary  btn-zly active">    <font color="white"> 注册</button>
+         <button class="btn   btn-primary  btn-zly" id="changeLog">   切换登陆 </font>
+	 </button></div>
+        <input  type="text" class="form-control"  style="width:100%" id="n1" name="name" placeholder="User name" required autofocus>
+        <input type="password" class="form-control"  style="width:100%" id="p1" name="password" placeholder="Password" required>
+	<input type="password" class="form-control" style="width:100%" id="p2" name="repassword" placeholder="Ensure Password" required >
+          <% if (locals.error) { %>
+            <div><font color="white"><%= locals.error %> </font></div>
+          <% } %>
+          <% if(locals.success) {%>
+            <div><font color="white"><%= locals.success %> </font></div>
+          <% } %>
+
+<!-- <input class="btn  btn-primary btn-block btn-zly " type="button" onClick="Myregcheck(reg.name.value)" value="Register">-->
+                      <button id="r1" class="btn  btn-primary btn-block btn-zly " type="submit" > 
+  Register</button>
+                 </fieldset>
+</form>	
+	</div>
+<script>
+$("#reg").hide();
+$("#changeReg").on("click",function(){
+  $("#login").hide();
+  $("#reg").show();
+});
+$("#changeLog").on("click",function(){
+  $("#login").show();
+  $("#reg").hide();
+});
+$("#b1").click(function(){
+if(!$("#n1")){
+alert("用户名不能为空！");
+}
+else if(!$("#p1")){
+alert("请输入密码！");
+}
+else if(!$("#p2"))
+{
+alert("请输入输入密码!");
+}
+else if($("#p1") != $("#p2")){
+alert("两次输入的密码不一致，请确认！");
+}
+else{
+alert("")
+}
+
+})
+</script>
+<%- include footer.html %>

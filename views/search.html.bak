@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<%- include h1.html %>
+<br>
+<input type="text"    placeholder="Hostname" style="height:30px" name="hostname" id="hostname">
+<input type="text"    placeholder="内网IP" style="height:30px" name="ip" id="ip">
+<input type="text"    placeholder="公网IP" style="height:30px" name="gip" id="gip">
+<input type="text"    placeholder="管理IP" style="height:30px" name="loip" id="loip">
+<input type="text"    placeholder="所属项目" style="height:30px" name="project" id="project">
+
+<input type="text"    placeholder="资产编号" style="height:30px" name="asset" id="asset">
+
+<input type="text"    placeholder="机柜编号" style="height:30px" name="cabinet" id="cabinet">
+<br>
+<div align=center>
+<button  class="btn btn-primary " style="width:100px" type="submit" id="search">查询</button>
+</div>
+
+  <div class="table-responsive">  
+        <table  border="0" cellspacing="0" cellpadding="0" class="table">  
+            <tr class=" label-primary">  
+                <th scope="col" width="12.5%" ><span style="color:white">Hostname</span></th>  
+                <th scope="col"><span style="color:white">所属项目</span></th>  
+        <th scope="col"><span style="color:white">内网IP</span></th>   
+	<th scope="col"><span style="color:white">外网IP</span></th>
+	<th scope="col"><span style="color:white">管理IP</span></th>
+	<th scope="col"><span style="color:white">资产编号</span></th>
+	<th scope="col"><span style="color:white">机柜编号</span></th>
+	<th scope="col"><span style="color:white">ServerTag</span></th>
+	 </tr>  
+
+ <% lists.forEach(function(list, index){ %>
+            <tr class="active">
+                <td><%= list.hostname %></td>
+                <td><%= list.project %></td>
+                <td><%= list.ip %></td>
+                <td><%= list.gip %></td>
+                <td><%= list.loip %></td>
+                <td><%= list.asset %></td>
+                <td><%= list.cabinet %></td>
+                <td><%= list.servertag %></td>
+            </tr>
+
+
+       <% }) %>
+
+
+        </table>  
+    </div>           
+
+
+<script language="javascript">
+$("#search").on("click",function(){
+
+
+/*function B(){
+if($("#hostname").val().toString()){
+this.hostname = $("#hostname").val().toString();
+}
+if($("#project").val().toString()){
+this.project = $("#project").val().toString();
+}
+if($("#ip").val().toString()){
+this.ip = $("#ip").val().toString();
+}
+if($("#gip").val().toString()){
+this.gip =  $("#gip").val().toString();
+}
+if($("#loip").val().toString()){
+this.loip = $("#loip").val().toString();
+}
+if($("#cabinet").val().toString()){
+this.cabinet = $("#cabinet").val().toString();
+}
+if( $("#asset").val().toString()){
+this.asset =  $("#asset").val().toString();
+}
+}
+*/
+var $hostname = $("#hostname").val().toString();
+var $project = $("#project").val().toString();
+var $ip = $("#ip").val().toString();
+var $gip = $("#gip").val().toString();
+var $loip = $("#loip").val().toString();
+var $cabinet = $("#cabinet").val().toString();
+var $asset = $("#asset").val().toString();
+
+
+//var item = new B()
+//var count=0;
+//for(var n in item)
+//{
+//count++;
+//}
+
+if(!$hostname && !$project && !$ip && !$gip && !$loip && !$cabinet && !$asset){
+$.get('/search');
+}
+else{
+
+$.post("/searchitem",{hostname:$hostname,project:$project,ip:$ip,gip:$gip,loip:$loip,cabinet:$cabinet,asset:$asset},function(result){
+
+
+})
+
+
+}
+
+
+})
+
+</script>
+
+
+<%- include footer.html %>

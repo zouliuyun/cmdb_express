@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Example of Twitter Bootstrap 3 Modals with Remote URL</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div >
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#myModal" data-toggle="modal" data-target="#myModal">Launch Demo Modal</a>
+<br>
+ <a href="#myModal1" data-toggle="modal" data-target="#myModal">a</a>
+
+   <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+	<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">提问框</h3>
+  </div>
+  <div class="modal-body">
+    <p><input type="text" placeholder="标题" name="title" id="askTitle"></p>
+    <textarea name="askText" rows="13" placeholder="正文" style="width:400px" id="askText"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true" id="closeAsk">关闭</button>
+    <button class="btn" id="askPost">提问</button>
+  </div>
+</div>
+</div>    
+</div>
+ <div id="myModal1" class="modal fade">
+        <div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">提问框zxcvzvxcvz</h3>
+  </div>
+  <div class="modal-body">
+    <p><input type="text" placeholder="标题" name="title" id="askTitle"></p>
+    <textarea name="askText" rows="13" placeholder="正文" style="width:400px" id="askText"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true" id="closeAsk">关闭</button>
+    <button class="btn" id="askPost">提问</button>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>                                  		
